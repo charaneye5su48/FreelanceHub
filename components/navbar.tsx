@@ -17,6 +17,27 @@ const navLinks = [
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, closeMobile = false) => {
+    e.preventDefault()
+    const id = href.replace("#", "")
+    const doScroll = () => {
+      const el = document.getElementById(id)
+      if (!el) return
+      // Get actual navbar height dynamically so it works on any screen
+      const navbar = document.querySelector("header") as HTMLElement | null
+      const navbarHeight = navbar ? navbar.offsetHeight : 64
+      const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight
+      window.scrollTo({ top, behavior: "smooth" })
+    }
+    if (closeMobile && mobileOpen) {
+      setMobileOpen(false)
+      // Wait for mobile menu collapse animation (300ms) before scrolling
+      setTimeout(doScroll, 320)
+    } else {
+      doScroll()
+    }
+  }
+
   return (
     <motion.header
       initial={{ y: -50, opacity: 0 }}
@@ -25,7 +46,7 @@ export function Navbar() {
     >
 
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <a href="#home" className="flex items-center gap-2.5">
+        <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center gap-2.5">
           <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"
             style={{ filter: "drop-shadow(0 0 6px rgba(220, 38, 38, 0.7))" }}
           >
@@ -47,6 +68,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="relative text-sm font-black tracking-wide text-white transition-colors duration-200 hover:text-white group"
               style={{ fontFamily: "var(--font-heading)" }}
             >
@@ -68,7 +90,7 @@ export function Navbar() {
             mail us
           </a>
           <Button asChild className="h-9 rounded-md bg-[#dc2626] px-4 text-sm font-black text-white hover:bg-[#dc2626]/80">
-            <a href="#apply">get started</a>
+            <a href="#apply" onClick={(e) => handleNavClick(e, "#apply")}>get started</a>
           </Button>
         </div>
 
@@ -93,7 +115,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href, true)}
                   className="py-2 text-sm font-black tracking-wide text-white/80 hover:text-white border-l-2 border-transparent hover:border-[#dc2626] pl-3 transition-all duration-200"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
@@ -101,7 +123,7 @@ export function Navbar() {
                 </a>
               ))}
               <Button asChild className="mt-2 h-10 w-full bg-[#dc2626] text-sm font-black text-white hover:bg-[#dc2626]/80">
-                <a href="#apply" onClick={() => setMobileOpen(false)}>
+                <a href="#apply" onClick={(e) => handleNavClick(e, "#apply", true)}>
                   get started
                 </a>
               </Button>
