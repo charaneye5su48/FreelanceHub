@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { WhatsAppButton } from '@/components/whatsapp-button'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' })
 
 export const metadata: Metadata = {
-  title: 'FreelanceHub - Hiring Experts That Automate Your Job Search',
-  description: 'We update your resume and apply to multiple jobs on your behalf — starting at just $250 (negotiable). Your hiring experts.',
+  title: 'ApplyLegit - Land Your $100K Dream Job before OPT Expires',
+  description: 'ApplyLegit™ focuses exclusively on full-time, F-1/OPT roles. Land your dream job before your OPT ends and take control of your career.',
   icons: {
     icon: [
       {
@@ -40,9 +41,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth light" style={{ colorScheme: 'light' }}>
-      <body className={`${inter.variable} ${dmSans.variable} font-sans antialiased`}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.variable} ${dmSans.variable} font-sans antialiased lowercase bg-black text-white`}>
         {children}
+        <WhatsAppButton />
         <Analytics />
       </body>
     </html>

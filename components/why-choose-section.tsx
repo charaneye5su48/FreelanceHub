@@ -2,50 +2,39 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import {
-  Rocket,
-  FileCheck,
-  DollarSign,
-  HeadphonesIcon,
-  Layers,
-} from "lucide-react"
+import { ShieldCheck, UserCheck, CreditCard, Building2 } from "lucide-react"
 
 const features = [
   {
-    icon: Rocket,
-    title: "Zero Effort Applications",
-    description: "We find, prepare, and submit job applications. You just wait for interview calls.",
+    icon: Building2,
+    title: "direct, full‑time roles",
+    description: "clear career path and actual stability. no stringing you along.",
   },
   {
-    icon: FileCheck,
-    title: "ATS-Ready Resume",
-    description: "Your resume gets rebuilt with optimized formatting and keywords that pass screening systems.",
+    icon: UserCheck,
+    title: "clear employer relationship",
+    description: "no third-party complications or weird middlemen taking a cut.",
   },
   {
-    icon: DollarSign,
-    title: "Low Price",
-    description: "Full service at one transparent price. No hidden fees, no upsells. And it's flexible.",
+    icon: CreditCard,
+    title: "no sticky payrolls",
+    description: "direct compensation from your boss. clean, transparent, and yours.",
   },
   {
-    icon: Layers,
-    title: "Multiple Platforms",
-    description: "We apply across LinkedIn, Indeed, Glassdoor, and niche boards for maximum coverage.",
-  },
-  {
-    icon: HeadphonesIcon,
-    title: "Personal Support",
-    description: "A dedicated point of contact guides you through the process and provides regular updates.",
+    icon: ShieldCheck,
+    title: "audit-safe, future-proof",
+    description: "only 100% legit, direct-hire opportunities that won't ruin your visa.",
   },
 ]
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
-      delay: i * 0.08,
+      delay: i * 0.1,
       ease: [0.22, 1, 0.36, 1],
     },
   }),
@@ -53,60 +42,85 @@ const fadeUp = {
 
 export function WhyChooseSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-80px" })
+  const isInView = useInView(ref, { once: true, margin: "-40px" })
 
   return (
-    <section id="why-us" className="border-y border-black/[0.06] bg-black/[0.015] py-28" ref={ref}>
+    <section id="why-us" className="border-b border-white/10 bg-black py-20" ref={ref}>
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           custom={0}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeUp}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-3xl text-center"
         >
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-black/35">
-            Why FreelanceHub
-          </span>
+          <div className="flex justify-center mb-4">
+            <span className="text-3xl sm:text-4xl">🛡️</span>
+          </div>
           <h2
-            className="mt-3 text-3xl font-bold tracking-tight text-black sm:text-4xl"
+            className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#dc2626] mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Built for people who hate job hunting
+            100% legit. no sketchiness. period.
           </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-black/50">
-            We eliminate every pain point of the job search — so you only
-            focus on showing up prepared.
+          <p className="mt-2 text-base sm:text-lg font-bold text-white/80">
+            no shady loopholes. no playing games with your visa.
           </p>
+          <div className="mt-6 space-y-4 text-sm sm:text-base leading-relaxed text-white/60 text-left sm:text-center max-w-2xl mx-auto">
+            <p>
+              <strong className="text-white">applylegit™</strong> is built for international students who just want a real,
+              safe career in the u.s. we skip the consultancies that push you into risky c2c contracts
+              and only get you direct-hire roles. why? because sketchy jobs will come back to bite you
+              during h-1b or green card processing.
+            </p>
+            <p>
+              <strong className="text-[#dc2626]">real talk:</strong> don't risk your whole future for a quick gig that leaves
+              compliance gaps on your record. when that happens, entire careers collapse. we keep
+              it clean, transparent, and audit-safe.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              custom={i + 1}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              variants={fadeUp}
-              className="group flex gap-4 rounded-xl border border-black/[0.06] bg-white p-5 transition-all duration-300 hover:border-black/12 hover:shadow-[0_4px_20px_rgb(0,0,0,0.03)]"
-            >
-              <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-black/[0.04] text-black/60 transition-all duration-300 group-hover:bg-black group-hover:text-white">
-                <feature.icon className="size-[18px]" />
-              </div>
-              <div>
-                <h3
-                  className="mb-1 text-[15px] font-semibold text-black"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  {feature.title}
-                </h3>
-                <p className="text-[13px] leading-relaxed text-black/45">
-                  {feature.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="mt-16">
+          <motion.h3
+            custom={1}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeUp}
+            className="text-center text-xl sm:text-2xl font-black text-white mb-8"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            why we're different
+          </motion.h3>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature, i) => (
+              <motion.div
+                key={feature.title}
+                custom={i + 2}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                variants={fadeUp}
+                className="group flex flex-col gap-4 rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:border-[#dc2626]/60 hover:bg-white/8"
+              >
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-[#dc2626]/10 text-[#dc2626] transition-all duration-300 group-hover:bg-[#dc2626] group-hover:text-white">
+                  <feature.icon className="size-6" />
+                </div>
+                <div>
+                  <h4
+                    className="mb-2 text-base sm:text-lg font-black text-white"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    ✓ {feature.title}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-white/50">
+                    {feature.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   )

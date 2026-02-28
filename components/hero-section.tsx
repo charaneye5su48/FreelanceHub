@@ -5,45 +5,41 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 15 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
-      delay: i * 0.12,
+      duration: 0.5,
+      delay: i * 0.08,
       ease: [0.22, 1, 0.36, 1],
     },
   }),
 }
 
 const metrics = [
-  { value: "500+", label: "Jobs Applied" },
-  { value: "95%", label: "Success Rate" },
-  { value: "Low", label: "Starting Price" },
-  { value: "24h", label: "Turnaround" },
+  { value: "$100K+", label: "Target Salary" },
+  { value: "100%", label: "Legit Compliant" },
+  { value: "0%", label: "Sketchy Deductions" },
 ]
 
 export function HeroSection() {
   return (
-    <section
-      id="home"
-      className="relative flex min-h-[100dvh] items-center pt-20"
-    >
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-20 text-center">
+    <section id="home" className="pt-16 pb-16 border-b border-white/10 bg-black">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 text-center">
         <motion.div
           custom={0}
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-black/10 bg-black/[0.03] px-4 py-1.5"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#dc2626]/30 bg-[#dc2626]/10 px-4 py-1.5"
         >
-          <span className="relative flex size-1.5">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-black opacity-40" />
-            <span className="relative inline-flex size-1.5 rounded-full bg-black" />
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#dc2626] opacity-40" />
+            <span className="relative inline-flex size-2 rounded-full bg-[#dc2626]" />
           </span>
-          <span className="text-[13px] font-medium tracking-wide text-black/70">
-            Your Hiring Expert — Now Accepting Clients
+          <span className="text-xs sm:text-sm font-bold tracking-wide text-[#dc2626]">
+            opt running out? yeah, we know the stress.
           </span>
         </motion.div>
 
@@ -52,12 +48,12 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="max-w-4xl text-balance text-[2.5rem] font-bold leading-[1.1] tracking-tight text-black sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+          className="max-w-4xl text-balance text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-black leading-[1.1] tracking-tight text-white"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          We Handle Your
+          secure your <span className="text-[#dc2626]">$100k bag</span>
           <br />
-          <span className="text-black/40">Job Search, End to End</span>
+          <span className="text-white/40 text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-2 block">before opt (stem, h-1b) expires</span>
         </motion.h1>
 
         <motion.p
@@ -65,12 +61,12 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-black/55 sm:text-[17px]"
+          className="mt-8 max-w-2xl text-base sm:text-lg leading-relaxed text-white/60"
         >
-          Resume updates, profile optimization, and bulk job applications —
-          all handled by hiring experts for a{" "}
-          <span className="font-semibold text-black">low price</span>.
-          You focus on interviews, we do the rest.
+          real talk: applying to jobs all day just to get ghosted is completely cooked.
+          your opt window is closing. <strong className="text-white">applylegit™</strong> skips the bs and gets
+          your resume straight in front of recruiters for real, full-time, direct-hire roles.
+          no shady third-parties. period.
         </motion.p>
 
         <motion.div
@@ -78,25 +74,25 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="mt-10 flex flex-col items-center gap-3.5 sm:flex-row"
+          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
         >
           <Button
             asChild
             size="lg"
-            className="h-12 rounded-xl bg-black px-8 text-sm font-medium text-white hover:bg-black/85"
+            className="h-12 rounded-lg bg-[#dc2626] px-8 text-sm sm:text-base font-black text-white hover:bg-[#dc2626]/80"
           >
             <a href="#apply">
-              Start Now
-              <ArrowRight className="ml-1.5 size-4" />
+              let's get started
+              <ArrowRight className="ml-2 size-4 sm:size-5" />
             </a>
           </Button>
           <Button
             asChild
             variant="outline"
             size="lg"
-            className="h-12 rounded-xl border-black/15 px-8 text-sm font-medium text-black hover:bg-black/[0.03]"
+            className="h-12 rounded-lg border-white/20 bg-transparent px-8 text-sm sm:text-base font-bold text-white hover:bg-white/10 hover:border-white/40"
           >
-            <a href="#pricing">View Pricing</a>
+            <a href="#about">see how we do it</a>
           </Button>
         </motion.div>
 
@@ -105,7 +101,7 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="mt-20 grid w-full max-w-lg grid-cols-4 gap-6"
+          className="mt-20 grid w-full max-w-3xl grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6"
         >
           {metrics.map((item, i) => (
             <motion.div
@@ -114,15 +110,15 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="flex flex-col items-center gap-1"
+              className="flex flex-col items-center gap-1.5"
             >
               <span
-                className="text-2xl font-bold text-black sm:text-3xl"
+                className="text-4xl sm:text-5xl font-black text-white"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {item.value}
               </span>
-              <span className="text-[11px] font-medium uppercase tracking-wider text-black/35">
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#dc2626]">
                 {item.label}
               </span>
             </motion.div>

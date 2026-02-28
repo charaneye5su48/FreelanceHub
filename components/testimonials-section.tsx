@@ -6,36 +6,36 @@ import { Star } from "lucide-react"
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Marketing Specialist",
+    name: "veeranjaneyulu",
+    role: "network engineer · dell",
     content:
-      "They revamped my resume and applied to 30+ jobs in one week. I had 5 interview calls within days. Best service I ever spent money on.",
+      "they literally redid my whole resume and blasted it out to like 30 roles. i got 5 interviews in a week. best investment i ever made.",
     rating: 5,
   },
   {
-    name: "Raj Patel",
-    role: "Software Developer",
+    name: "himavanth",
+    role: "network engineer · arista networks",
     content:
-      "I was skeptical, but they delivered. My resume looks 10x better and they found positions I wouldn't have discovered on my own.",
+      "ngl i was super skeptical at first, but they delivered. my cv looks 10x better and they found legit roles i didn't even know existed.",
     rating: 5,
   },
   {
-    name: "Maria Santos",
-    role: "Graphic Designer",
+    name: "hema nalluri",
+    role: "network engineer · city of cleveland",
     content:
-      "They updated my resume, applied to multiple jobs, and I landed a great remote gig. The fee was incredibly low too.",
+      "these guys got me a crazy remote gig right before my opt expired. the process was super smooth and honestly a steal for the price.",
     rating: 5,
   },
 ]
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 15 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: i * 0.15,
+      duration: 0.5,
+      delay: i * 0.1,
       ease: [0.22, 1, 0.36, 1],
     },
   }),
@@ -43,10 +43,10 @@ const fadeUp = {
 
 export function TestimonialsSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-80px" })
+  const isInView = useInView(ref, { once: true, margin: "-40px" })
 
   return (
-    <section id="testimonials" className="border-t border-black/[0.06] py-28" ref={ref}>
+    <section id="testimonials" className="border-b border-white/10 bg-black py-20" ref={ref}>
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           custom={0}
@@ -55,21 +55,21 @@ export function TestimonialsSection() {
           variants={fadeUp}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-black/35">
-            Testimonials
+          <span className="text-xs font-black uppercase tracking-widest text-[#dc2626]">
+            receipts
           </span>
           <h2
-            className="mt-3 text-3xl font-bold tracking-tight text-black sm:text-4xl"
+            className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white mb-4 whitespace-nowrap"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Trusted by job seekers worldwide
+            real people. real offers. real results.
           </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-black/50">
-            Real results from real people who let us handle their job search.
+          <p className="mt-2 text-base sm:text-lg leading-relaxed text-white/60">
+            we've helped hundreds land their dream roles — these are just a few who said it best.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {testimonials.map((testimonial, i) => (
             <motion.div
               key={testimonial.name}
@@ -77,31 +77,33 @@ export function TestimonialsSection() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={fadeUp}
-              className="relative rounded-2xl border border-black/[0.06] bg-white p-7 transition-all duration-300 hover:border-black/12 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+              className="relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-300 hover:border-[#dc2626]/60 hover:bg-white/8"
             >
-              <div className="mb-4 flex gap-0.5">
-                {Array.from({ length: testimonial.rating }).map((_, idx) => (
-                  <Star
-                    key={idx}
-                    className="size-4 fill-black text-black"
-                  />
-                ))}
+              <div>
+                <div className="mb-4 flex gap-1">
+                  {Array.from({ length: testimonial.rating }).map((_, idx) => (
+                    <Star
+                      key={idx}
+                      className="size-4 fill-[#dc2626] text-[#dc2626]"
+                    />
+                  ))}
+                </div>
+                <p className="mb-6 text-sm sm:text-base leading-relaxed italic text-white/70">
+                  &ldquo;{testimonial.content}&rdquo;
+                </p>
               </div>
-              <p className="mb-6 text-[14px] leading-relaxed text-black/60">
-                &ldquo;{testimonial.content}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="flex size-9 items-center justify-center rounded-full bg-black text-[12px] font-bold text-white">
+              <div className="flex items-center gap-4 mt-auto">
+                <div className="flex size-10 items-center justify-center rounded-lg bg-[#dc2626] text-sm font-black text-white uppercase">
                   {testimonial.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
                 </div>
                 <div>
-                  <p className="text-[13px] font-semibold text-black">
+                  <p className="text-sm font-black text-white capitalize">
                     {testimonial.name}
                   </p>
-                  <p className="text-[12px] text-black/40">
+                  <p className="text-xs font-bold text-[#dc2626] capitalize mt-0.5">
                     {testimonial.role}
                   </p>
                 </div>

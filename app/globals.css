@@ -85,6 +85,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -94,13 +95,16 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: oklch(0.75 0 0);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.5 0 0);
 }
