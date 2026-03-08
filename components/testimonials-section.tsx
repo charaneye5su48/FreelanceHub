@@ -6,21 +6,21 @@ import { Star } from "lucide-react"
 
 const testimonials = [
   {
-    name: "veeranjaneyulu",
+    name: "yashwanth",
     role: "network engineer · dell",
     content:
       "they literally redid my whole resume and blasted it out to like 30 roles. i got 5 interviews in a week. best investment i ever made.",
     rating: 5,
   },
   {
-    name: "himavanth",
+    name: "uday kiran",
     role: "network engineer · arista networks",
     content:
       "ngl i was super skeptical at first, but they delivered. my cv looks 10x better and they found legit roles i didn't even know existed.",
     rating: 5,
   },
   {
-    name: "hema nalluri",
+    name: "nikitha",
     role: "network engineer · city of cleveland",
     content:
       "these guys got me a crazy remote gig right before my opt expired. the process was super smooth and honestly a steal for the price.",
