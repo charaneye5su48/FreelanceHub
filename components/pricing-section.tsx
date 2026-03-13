@@ -73,7 +73,7 @@ export function PricingSection() {
                                     className="text-6xl sm:text-7xl font-black text-white tracking-tighter"
                                     style={{ fontFamily: "var(--font-heading)" }}
                                 >
-                                    $250
+                                    $130
                                 </span>
                                 <span className="text-2xl font-black text-white/50">/mo</span>
                             </div>
